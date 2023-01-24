@@ -1,10 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContactsThunk } from 'redux/operations/contactsThunk';
 import styles from './App.module.css';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getContactsThunk());
+  }, [dispatch]);
+
   const users = useSelector(state => state.contacts.items);
 
   return (

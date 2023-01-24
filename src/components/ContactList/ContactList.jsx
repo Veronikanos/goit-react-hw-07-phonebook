@@ -1,18 +1,10 @@
 import styles from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import {
-  deleteContactThunk,
-  getContactsThunk,
-} from 'redux/operations/contactsThunk';
+import { deleteContactThunk } from 'redux/operations/contactsThunk';
 import { getFilteredContacts } from 'redux/selectors/selectors';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getContactsThunk());
-  }, [dispatch]);
 
   const contacts = useSelector(getFilteredContacts);
   return (
