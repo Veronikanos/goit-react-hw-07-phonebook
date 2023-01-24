@@ -6,7 +6,6 @@ import { Filter } from './Filter/Filter';
 
 export const App = () => {
   const users = useSelector(state => state.contacts.items);
-  // const isLoading = useSelector(state => state.contacts.isLoading);
 
   return (
     <section className={styles.phonebook}>
@@ -16,15 +15,15 @@ export const App = () => {
       </div>
       <div className={styles.container}>
         <h2>Contacts</h2>
-        {/* {!users.length ? (
+        {!users.length ? (
           <h3>Your phonebook is empty. Add your first contact</h3>
-        ) : ( */}
-        <>
-          {/* <h3>Your phonebook has {users.length} contacts</h3> */}
-          <Filter />
-          <ContactList />
-        </>
-        {/* )} */}
+        ) : (
+          <>
+            <h3>Your phonebook has {users.length} contacts</h3>
+            <Filter />
+            <ContactList />
+          </>
+        )}
       </div>
     </section>
   );

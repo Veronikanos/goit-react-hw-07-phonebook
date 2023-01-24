@@ -2,7 +2,7 @@ import styles from './ContactForm.module.css';
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactSlice';
+import { addContactThunk } from 'redux/operations/contactsThunk';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const ContactForm = () => {
       name: e.target.elements.name.value,
       number: e.target.elements.number.value,
     };
-    dispatch(addContact(newObj));
+    dispatch(addContactThunk(newObj));
 
     e.target.reset();
   };

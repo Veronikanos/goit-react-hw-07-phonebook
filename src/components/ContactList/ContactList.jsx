@@ -5,6 +5,7 @@ import {
   deleteContactThunk,
   getContactsThunk,
 } from 'redux/operations/contactsThunk';
+import { getFilteredContacts } from 'redux/selectors/selectors';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,7 @@ export const ContactList = () => {
     dispatch(getContactsThunk());
   }, [dispatch]);
 
-  const contacts = useSelector(state => {
-    return state.contacts.items.filter(item =>
-      item.name.toLowerCase().trim().includes(state.filter.toLowerCase().trim())
-    );
-  });
+  const contacts = useSelector(getFilteredContacts);
   return (
     <>
       <ul>
