@@ -1,6 +1,5 @@
 import styles from './ContactForm.module.css';
 import React from 'react';
-import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import { addContactThunk } from 'redux/operations/contactsThunk';
 
@@ -11,7 +10,6 @@ export const ContactForm = () => {
     e.preventDefault();
 
     const newObj = {
-      id: nanoid(),
       name: e.target.elements.name.value,
       number: e.target.elements.number.value,
     };
